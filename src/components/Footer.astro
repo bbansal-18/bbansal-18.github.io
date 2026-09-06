@@ -1,0 +1,24 @@
+---
+import { site } from '../data/site';
+import { path } from '../lib/url';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="wrap bar">
+		<p>
+			© {year} {site.name}
+		</p>
+		<nav aria-label="Contact">
+			<a href={`mailto:${site.email}`}>{site.email}</a>
+			{site.github && (
+				<a href={site.github} rel="me">
+					GitHub
+				</a>
+			)}
+			<a href={site.linkedin} rel="me">LinkedIn</a>
+			<a href={path(site.resumeHref)}>Resume</a>
+		</nav>
+	</div>
+</footer>

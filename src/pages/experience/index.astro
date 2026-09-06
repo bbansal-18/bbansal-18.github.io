@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryCard from '../../components/EntryCard.astro';
+import { listed } from '../../lib/content';
+
+const entries = await listed('experience');
+---
+
+<BaseLayout
+	title="Experience"
+	description="Roles told as stories: what the work was for, not a job description."
+>
+	<header class="wrap page-head">
+		<p class="kicker">Experience</p>
+		<h1>Places I have worked</h1>
+		<p>
+			Internships and campus work — written so you can see the work, not just the title.
+		</p>
+	</header>
+	<div class="wrap entry-list">
+		{
+			entries.map((entry) => (
+				<EntryCard
+					href={`/experience/${entry.id}/`}
+					title={entry.data.role}
+					summary={entry.data.summary}
+					start={entry.data.start}
+					end={entry.data.end}
+					eyebrow={entry.data.org}
+					placeholder={entry.data.placeholder}
+				/>
+			))
+		}
+	</div>
+</BaseLayout>

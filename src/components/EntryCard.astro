@@ -1,0 +1,27 @@
+---
+import { formatPeriod } from '../lib/dates';
+import { path } from '../lib/url';
+
+interface Props {
+	href: string;
+	title: string;
+	summary: string;
+	start: string;
+	end?: string;
+	eyebrow?: string;
+	placeholder?: boolean;
+	compact?: boolean;
+}
+
+const { href, title, summary, start, end, eyebrow, placeholder, compact = false } = Astro.props;
+---
+
+<a class:list={['card', compact && 'compact']} href={path(href)}>
+	<div class="eyebrow">
+		{eyebrow && <span>{eyebrow}</span>}
+		<span>{formatPeriod(start, end)}</span>
+		{placeholder && <span class="pill accent">Placeholder</span>}
+	</div>
+	<h3>{title}</h3>
+	<p>{summary}</p>
+</a>

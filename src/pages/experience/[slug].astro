@@ -1,0 +1,31 @@
+---
+import { render } from 'astro:content';
+import EntryLayout from '../../layouts/EntryLayout.astro';
+import { listed } from '../../lib/content';
+
+export async function getStaticPaths() {
+	const entries = await listed('experience');
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const meta = [entry.data.org, entry.data.location].filter((item): item is string => Boolean(item));
+---
+
+<EntryLayout
+	title={entry.data.role}
+	kicker="Experience"
+	description={entry.data.summary}
+	start={entry.data.start}
+	end={entry.data.end}
+	meta={meta}
+	tags={entry.data.tags}
+	links={entry.data.links}
+	placeholder={entry.data.placeholder}
+>
+	<Content />
+</EntryLayout>

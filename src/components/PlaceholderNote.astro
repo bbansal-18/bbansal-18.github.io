@@ -1,0 +1,17 @@
+---
+interface Props {
+	show?: boolean;
+}
+
+const { show = true } = Astro.props;
+---
+
+{
+	show && (
+		<p class="notice">
+			This is sample content so the page has a real shape. Replace the Markdown in{' '}
+			<code>src/content/</code> and set <code>placeholder: false</code>. See{' '}
+			<code>CONTENT.md</code>.
+		</p>
+	)
+}

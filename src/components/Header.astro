@@ -1,0 +1,68 @@
+---
+import { nav, site } from '../data/site';
+import { isCurrent, isCurrentAny, path } from '../lib/url';
+import ThemeToggle from './ThemeToggle.astro';
+
+const pathname = Astro.url.pathname;
+
+function itemCurrent(item: { href: string; match?: string[] }): boolean {
+	return isCurrentAny(pathname, item.match ?? [item.href]);
+}
+---
+
+<header class="site-header">
+	<div class="wrap bar">
+		<a class="wordmark" href={path('/')}>{site.name}</a>
+
+		<div class="header-end">
+			<nav class="nav-desktop" aria-label="Primary">
+			{
+				nav.primary.map((item) => (
+					<a href={path(item.href)} aria-current={itemCurrent(item) ? 'page' : undefined}>
+						{item.label}
+					</a>
+				))
+			}
+			<details class="nav-more">
+				<summary>More</summary>
+				<div class="dropdown">
+					{
+						nav.more.map((item) => (
+							<a href={path(item.href)} aria-current={itemCurrent(item) ? 'page' : undefined}>
+								{item.label}
+							</a>
+						))
+					}
+				</div>
+			</details>
+			<a
+				class="resume"
+				href={path(site.resumeHref)}
+				aria-current={isCurrent(pathname, site.resumeHref) ? 'page' : undefined}
+			>
+				Resume
+				</a>
+			</nav>
+			<ThemeToggle />
+			<details class="nav-mobile">
+			<summary>Menu</summary>
+			<nav class="dropdown" aria-label="Primary">
+				{
+					[...nav.primary, ...nav.more].map((item) => (
+						<a href={path(item.href)} aria-current={itemCurrent(item) ? 'page' : undefined}>
+							{item.label}
+						</a>
+					))
+				}
+				<a
+					class="resume"
+					href={path(site.resumeHref)}
+					aria-current={isCurrent(pathname, site.resumeHref) ? 'page' : undefined}
+				>
+					Resume
+				</a>
+			</nav>
+		</details>
+		</div>
+	</div>
+</header>

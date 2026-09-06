@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+import { listed } from '../lib/content';
+
+const entries = await listed('awards');
+---
+
+<BaseLayout
+	title="Awards"
+	description="Dean’s List, valedictorian, robotics championships, and the rest of the record."
+>
+	<header class="wrap page-head">
+		<p class="kicker">Awards</p>
+		<h1>Recognition</h1>
+		<p>
+			Dean’s List, a valedictorian year, international robotics, and the credentials I earned on
+			purpose.
+		</p>
+	</header>
+	<div class="wrap">
+		<div class="timeline">
+			{
+				entries.map((entry) => (
+					<TimelineItem
+						title={entry.data.title}
+						summary={entry.data.summary}
+						start={entry.data.start}
+						end={entry.data.end}
+						org={entry.data.issuer}
+						placeholder={entry.data.placeholder}
+					/>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>

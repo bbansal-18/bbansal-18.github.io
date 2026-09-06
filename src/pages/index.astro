@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeCardGrid from '../components/HomeCardGrid.astro';
+import Portrait from '../components/Portrait.astro';
+import { homeSections, site } from '../data/site';
+import { listed } from '../lib/content';
+import { path } from '../lib/url';
+
+const [education, experience, projects, research, writing] = await Promise.all([
+	listed('education'),
+	listed('experience'),
+	listed('projects'),
+	listed('research'),
+	listed('writing'),
+]);
+
+const collections = { experience, projects };
+
+const writingKind = {
+	note: 'Note',
+	publication: 'Publication',
+	post: 'Post',
+} as const;
+
+const researchWriting = [
+	...research.map((item) => ({
+		href: `/research/${item.id}/`,
+		title: item.data.title,
+		summary: item.data.summary,
+		start: item.data.start,
+		end: item.data.end,
+		eyebrow: item.data.venue ?? item.data.role,
+		placeholder: item.data.placeholder,
+	})),
+	...writing
+		.filter((item) => !item.id.endsWith('-paper'))
+		.map((item) => ({
+			href: `/writing/${item.id}/`,
+			title: item.data.title,
+			summary: item.data.summary,
+			start: item.data.start,
+			end: item.data.end,
+			eyebrow: writingKind[item.data.kind],
+			placeholder: item.data.placeholder,
+		})),
+];
+
+---
+
+<BaseLayout>
+	<section class="wrap hero">
+		<div class="hero-copy">
+			<p class="kicker">{site.location}</p>
+			<h1>{site.name}</h1>
+			<p class="lede">{site.positioning}</p>
+			<p class="hero-school">
+				<a href={path('/education/')}>{site.school}</a>
+				{' · '}
+				{site.graduation}
+			</p>
+			<p class="intro">{site.intro}</p>
+			<ul class="meta-links">
+				<li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+				{site.github && (
+					<li>
+						<a href={site.github}>GitHub</a>
+					</li>
+				)}
+				<li><a href={site.linkedin}>LinkedIn</a></li>
+				<li><a href={path('/about/')}>About</a></li>
+			</ul>
+		</div>
+		<Portrait class="hero-portrait" width={640} />
+	</section>
+
+	<section class="wrap section" id="education">
+		<div class="section-head">
+			<h2>Education</h2>
+			<a class="see-all" href={path('/education/')}>
+				All education
+			</a>
+		</div>
+		<p class="dek">
+			Computer Science at Carnegie Mellon — the degree I am here for, with minors in machine
+			learning and mathematical finance.
+		</p>
+		<HomeCardGrid
+			items={education.map((entry) => ({
+				href: '/education/',
+				title: entry.data.school,
+				summary: entry.data.summary,
+				start: entry.data.start,
+				end: entry.data.end,
+				eyebrow: entry.data.location,
+				placeholder: entry.data.placeholder,
+			}))}
+		/>
+	</section>
+
+	{
+		homeSections.map((section) => {
+			const items = collections[section.collection];
+			return (
+				<section class="wrap section">
+					<div class="section-head">
+						<h2>{section.label}</h2>
+						<a class="see-all" href={path(section.href)}>
+							All {section.label.toLowerCase()}
+						</a>
+					</div>
+					<p class="dek">{section.dek}</p>
+					<HomeCardGrid
+						items={items.map((item) => ({
+							href: `${section.href}${item.id}/`,
+							title: item.data.title,
+							summary: item.data.summary,
+							start: item.data.start,
+							end: item.data.end,
+							eyebrow: 'org' in item.data ? item.data.org : item.data.tags[0],
+							placeholder: item.data.placeholder,
+						}))}
+					/>
+				</section>
+			);
+		})
+	}
+
+	<section class="wrap section" id="research-writing">
+		<div class="section-head">
+			<h2>Research &amp; Writing</h2>
+			<a class="see-all" href={path('/research/')}>
+				See all
+			</a>
+		</div>
+		<p class="dek">A book, papers, and the questions behind them — from high school onward.</p>
+		<HomeCardGrid items={researchWriting} />
+	</section>
+
+	<section class="wrap section">
+		<div class="section-head">
+			<h2>Also here</h2>
+		</div>
+		<p class="dek">The rest of the picture from high school onward.</p>
+		<ul class="meta-links">
+			<li><a href={path('/awards/')}>Awards</a></li>
+			<li><a href={path('/activities/')}>Activities</a></li>
+		</ul>
+	</section>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import EntryCard from './EntryCard.astro';
+
+interface Item {
+	href: string;
+	title: string;
+	summary: string;
+	start: string;
+	end?: string;
+	eyebrow?: string;
+	placeholder?: boolean;
+}
+
+interface Props {
+	items: Item[];
+}
+
+const { items } = Astro.props;
+
+/** Odd k: top gets (k-1)/2 (wider); bottom gets the rest. Even k: two equal rows. */
+function splitHomeRows<T>(list: T[]): [T[], T[]] {
+	const k = list.length;
+	if (k <= 1) return [list, []];
+	const topCount = k % 2 === 1 ? (k - 1) / 2 : k / 2;
+	return [list.slice(0, topCount), list.slice(topCount)];
+}
+
+const [top, bottom] = splitHomeRows(items);
+---
+
+<div class:list={['home-grid', bottom.length > 0 && 'two-rows']}>
+	{
+		top.length > 0 && (
+			<div class="home-row" style={`--row-cols: ${top.length}`}>
+				{top.map((item) => (
+					<EntryCard compact {...item} />
+				))}
+			</div>
+		)
+	}
+	{
+		bottom.length > 0 && (
+			<div class="home-row" style={`--row-cols: ${bottom.length}`}>
+				{bottom.map((item) => (
+					<EntryCard compact {...item} />
+				))}
+			</div>
+		)
+	}
+</div>

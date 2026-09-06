@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryCard from '../../components/EntryCard.astro';
+import { listed } from '../../lib/content';
+
+const research = await listed('research');
+const writing = await listed('writing');
+
+const writingKind = {
+	note: 'Note',
+	publication: 'Publication',
+	post: 'Post',
+} as const;
+---
+
+<BaseLayout
+	title="Research & Writing"
+	description="Research, a book, and publications — the questions and the public record."
+>
+	<header class="wrap page-head">
+		<p class="kicker">Research &amp; Writing</p>
+		<h1>Questions, then the public record</h1>
+		<p>
+			Research pages are the stories. Writing is the book and the papers, including short
+			entries that point back to a longer research page when one exists.
+		</p>
+	</header>
+
+	<section class="wrap section flush-top" id="research">
+		<div class="section-head">
+			<h2>Research</h2>
+		</div>
+		<p class="dek">The problem, the role, and what came of the work.</p>
+		<div class="entry-list">
+			{
+				research.map((entry) => (
+					<EntryCard
+						href={`/research/${entry.id}/`}
+						title={entry.data.title}
+						summary={entry.data.summary}
+						start={entry.data.start}
+						end={entry.data.end}
+						eyebrow={entry.data.venue ?? entry.data.role}
+						placeholder={entry.data.placeholder}
+					/>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="wrap section" id="writing">
+		<div class="section-head">
+			<h2>Writing</h2>
+		</div>
+		<p class="dek">A book and a publication list.</p>
+		<div class="entry-list">
+			{
+				writing.map((entry) => (
+					<EntryCard
+						href={`/writing/${entry.id}/`}
+						title={entry.data.title}
+						summary={entry.data.summary}
+						start={entry.data.start}
+						end={entry.data.end}
+						eyebrow={writingKind[entry.data.kind]}
+						placeholder={entry.data.placeholder}
+					/>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import EntryLinks from '../components/EntryLinks.astro';
+import PlaceholderNote from '../components/PlaceholderNote.astro';
+import TagList from '../components/TagList.astro';
+import { formatPeriod } from '../lib/dates';
+
+interface Props {
+	title: string;
+	kicker: string;
+	description: string;
+	start: string;
+	end?: string;
+	meta?: string[];
+	tags?: string[];
+	links?: { label: string; href: string }[];
+	placeholder?: boolean;
+}
+
+const {
+	title,
+	kicker,
+	description,
+	start,
+	end,
+	meta = [],
+	tags = [],
+	links = [],
+	placeholder = false,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} ogType="article">
+	<article class="wrap page-head">
+		<p class="kicker">{kicker}</p>
+		<h1>{title}</h1>
+		<div class="entry-meta">
+			<span>{formatPeriod(start, end)}</span>
+			{meta.map((item) => <span>{item}</span>)}
+			{placeholder && <span class="pill accent">Placeholder</span>}
+		</div>
+		<PlaceholderNote show={placeholder} />
+		<div class="prose">
+			<slot />
+		</div>
+		<TagList tags={tags} />
+		<EntryLinks links={links} />
+	</article>
+</BaseLayout>

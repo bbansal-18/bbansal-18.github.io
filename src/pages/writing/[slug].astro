@@ -1,0 +1,35 @@
+---
+import { render } from 'astro:content';
+import EntryLayout from '../../layouts/EntryLayout.astro';
+import { listed } from '../../lib/content';
+
+export async function getStaticPaths() {
+	const entries = await listed('writing');
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const kindLabel = {
+	note: 'Note',
+	publication: 'Publication',
+	post: 'Post',
+} as const;
+---
+
+<EntryLayout
+	title={entry.data.title}
+	kicker="Research & Writing"
+	description={entry.data.summary}
+	start={entry.data.start}
+	end={entry.data.end}
+	meta={[kindLabel[entry.data.kind]]}
+	tags={entry.data.tags}
+	links={entry.data.links}
+	placeholder={entry.data.placeholder}
+>
+	<Content />
+</EntryLayout>

@@ -1,0 +1,49 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PlaceholderNote from '../components/PlaceholderNote.astro';
+import Portrait from '../components/Portrait.astro';
+import TagList from '../components/TagList.astro';
+import { site } from '../data/site';
+
+const about = await getEntry('pages', 'about');
+if (!about) {
+	throw new Error('Missing src/content/pages/about.md');
+}
+const { Content } = await render(about);
+---
+
+<BaseLayout title="About" description={`About ${site.name}, ${site.tagline}.`}>
+	<article class="wrap page-head about-head">
+		<div>
+			<p class="kicker">About</p>
+			<h1>{about.data.title}</h1>
+			<p>{site.tagline}</p>
+		</div>
+		<Portrait class="about-portrait" width={360} />
+	</article>
+	<div class="wrap">
+		<PlaceholderNote show={about.data.placeholder} />
+		<div class="prose">
+			<Content />
+		</div>
+		<section class="skill-block" aria-labelledby="skills-heading">
+			<h2 id="skills-heading">How I work</h2>
+			<p>
+				Skills as supporting context, not a scorecard. These are the areas I return to; the
+				projects and research pages show how they show up in practice.
+			</p>
+			<div class="skill-grid">
+				{
+					site.skillGroups.map((group) => (
+						<div>
+							<h3>{group.heading}</h3>
+							<p>{group.blurb}</p>
+							<TagList tags={group.items} />
+						</div>
+					))
+				}
+			</div>
+		</section>
+	</div>
+</BaseLayout>

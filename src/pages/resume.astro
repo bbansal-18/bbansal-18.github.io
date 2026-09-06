@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { path } from '../lib/url';
+
+const pdf = path(site.resumePdf);
+---
+
+<BaseLayout title="Resume" description={`Resume of ${site.name}, ${site.tagline}.`}>
+	<header class="wrap page-head resume-head">
+		<p class="kicker">Resume</p>
+		<h1>Curriculum vitae</h1>
+		<p>The one-page software-engineering resume. This site is the longer version.</p>
+		<div class="resume-actions">
+			<a class="resume-download" href={pdf} download="Bhavya-Bansal-Resume.pdf">Download PDF</a>
+		</div>
+	</header>
+	<div class="wrap">
+		<div class="resume-viewer">
+			<object title={`Resume of ${site.name}`} data={`${pdf}#view=FitH`} type="application/pdf">
+				<p class="resume-fallback">
+					This browser is not showing the PDF inline.
+					<a href={pdf} download="Bhavya-Bansal-Resume.pdf">Download it instead</a>.
+				</p>
+			</object>
+		</div>
+	</div>
+</BaseLayout>

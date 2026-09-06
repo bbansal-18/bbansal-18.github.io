@@ -1,0 +1,56 @@
+---
+const sun = 'M12 3.2v1.8M12 19v1.8M4.9 4.9l1.3 1.3M17.8 17.8l1.3 1.3M3.2 12h1.8M19 12h1.8M4.9 19.1l1.3-1.3M17.8 6.2l1.3-1.3M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z';
+const moon = 'M17.5 15.4A7.2 7.2 0 0 1 9.8 5.3 7.4 7.4 0 1 0 17.5 15.4z';
+---
+
+<button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+	<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+		<path d={moon}></path>
+	</svg>
+	<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+		<path d={sun}></path>
+	</svg>
+</button>
+
+<script>
+	const KEY = 'theme';
+	const DARK = '#141311';
+	const LIGHT = '#f6f1ea';
+
+	function systemTheme(): 'light' | 'dark' {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function readTheme(): 'light' | 'dark' {
+		const stored = localStorage.getItem(KEY);
+		if (stored === 'light' || stored === 'dark') return stored;
+		return systemTheme();
+	}
+
+	function applyTheme(theme: 'light' | 'dark', persist: boolean) {
+		document.documentElement.dataset.theme = theme;
+		document.documentElement.style.colorScheme = theme;
+		const meta = document.querySelector('meta[name="theme-color"]');
+		if (meta) meta.setAttribute('content', theme === 'dark' ? DARK : LIGHT);
+		document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+			const next = theme === 'dark' ? 'light' : 'dark';
+			button.setAttribute('aria-label', `Switch to ${next} theme`);
+			button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+		});
+		if (persist) localStorage.setItem(KEY, theme);
+	}
+
+	applyTheme(readTheme(), false);
+
+	document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+		button.addEventListener('click', () => {
+			applyTheme(readTheme() === 'dark' ? 'light' : 'dark', true);
+		});
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+		const stored = localStorage.getItem(KEY);
+		if (stored === 'light' || stored === 'dark') return;
+		applyTheme(event.matches ? 'dark' : 'light', false);
+	});
+</script>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+import { listed } from '../lib/content';
+
+const entries = await listed('activities');
+---
+
+<BaseLayout
+	title="Activities"
+	description="Clubs, leadership, and other work from high school."
+>
+	<header class="wrap page-head">
+		<p class="kicker">Activities</p>
+		<h1>Communities I have been part of</h1>
+		<p>
+			Student council, a club I founded, and the rest of the high-school week that was not a class.
+		</p>
+	</header>
+	<div class="wrap">
+		<div class="timeline">
+			{
+				entries.map((entry) => (
+					<TimelineItem
+						title={entry.data.role}
+						summary={entry.data.summary}
+						start={entry.data.start}
+						end={entry.data.end}
+						org={entry.data.org}
+						placeholder={entry.data.placeholder}
+					/>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import { formatPeriod } from '../lib/dates';
+
+interface Props {
+	title: string;
+	summary: string;
+	start: string;
+	end?: string;
+	org?: string;
+	placeholder?: boolean;
+	href?: string;
+}
+
+const { title, summary, start, end, org, placeholder, href } = Astro.props;
+---
+
+<article class="timeline-item">
+	<p class="when">
+		{formatPeriod(start, end)}
+		{placeholder && <span class="pill accent">Placeholder</span>}
+	</p>
+	<h3>
+		{
+			href ? (
+				<a href={href}>{title}</a>
+			) : (
+				title
+			)
+		}
+	</h3>
+	{org && <p class="org">{org}</p>}
+	<p>{summary}</p>
+</article>

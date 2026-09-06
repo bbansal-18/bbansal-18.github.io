@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.jpg';
+import { site } from '../data/site';
+
+interface Props {
+	class?: string;
+	width?: number;
+}
+
+const { class: className = 'portrait', width = 560 } = Astro.props;
+---
+
+<figure class={className}>
+	<Image
+		src={portrait}
+		alt={`${site.name}, Computer Science student at Carnegie Mellon University`}
+		width={width}
+		densities={[1, 2]}
+	/>
+</figure>
