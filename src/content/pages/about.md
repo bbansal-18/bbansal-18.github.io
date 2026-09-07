@@ -3,7 +3,7 @@ title: About Me
 placeholder: false
 ---
 
-I'm Bhavya, a CS major at Carnegie Mellon with a minor in Machine Learning and Computational Finance, and I've spent most of my time outside class actually building systems end to end: from mobile apps to live platforms.
+I'm Bhavya, a Computer Science major at Carnegie Mellon with a Machine Learning concentration and Mathematical Finance minor, and I've spent most of my time outside class actually building systems end to end: from mobile apps to live platforms.
 
 In summer 2026, I interned at MasterTrust, where I built a live execution system that handled real-time price monitoring and order routing across multiple accounts, plus a backtesting engine to validate strategies before anything went live, which was a high-level practice in building software that has to be both fast and correct at the same time. Before that, at HNI Investor, I built a real-time dashboard that pulled data through a VBA-driven Excel pipeline, streamed it over WebSockets, and rendered it in React, thereby stitching three very different pieces of tech into something that actually worked reliably.
 
