@@ -1,4 +1,4 @@
-/** Prefix internal paths with the GitHub Pages base (e.g. /Portfolio). */
+/** Prefix internal paths with the GitHub Pages base (empty for a user site). */
 export function path(href: string): string {
 	if (
 		href.startsWith('http://') ||
