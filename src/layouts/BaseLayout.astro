@@ -24,7 +24,7 @@ const ogImage = new URL(portrait.src, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,13 +45,7 @@ const ogImage = new URL(portrait.src, Astro.site).href;
 		<script is:inline>
 			(function () {
 				try {
-					var stored = localStorage.getItem('theme');
-					var theme =
-						stored === 'light' || stored === 'dark'
-							? stored
-							: window.matchMedia('(prefers-color-scheme: dark)').matches
-								? 'dark'
-								: 'light';
+					var theme = sessionStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
 					document.documentElement.dataset.theme = theme;
 					document.documentElement.style.colorScheme = theme;
 					var meta = document.querySelector('meta[name="theme-color"]');

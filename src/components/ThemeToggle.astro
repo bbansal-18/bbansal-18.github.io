@@ -17,14 +17,8 @@ const moon = 'M17.5 15.4A7.2 7.2 0 0 1 9.8 5.3 7.4 7.4 0 1 0 17.5 15.4z';
 	const DARK = '#141311';
 	const LIGHT = '#f6f1ea';
 
-	function systemTheme(): 'light' | 'dark' {
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}
-
 	function readTheme(): 'light' | 'dark' {
-		const stored = localStorage.getItem(KEY);
-		if (stored === 'light' || stored === 'dark') return stored;
-		return systemTheme();
+		return sessionStorage.getItem(KEY) === 'dark' ? 'dark' : 'light';
 	}
 
 	function applyTheme(theme: 'light' | 'dark', persist: boolean) {
@@ -37,7 +31,7 @@ const moon = 'M17.5 15.4A7.2 7.2 0 0 1 9.8 5.3 7.4 7.4 0 1 0 17.5 15.4z';
 			button.setAttribute('aria-label', `Switch to ${next} theme`);
 			button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
 		});
-		if (persist) localStorage.setItem(KEY, theme);
+		if (persist) sessionStorage.setItem(KEY, theme);
 	}
 
 	applyTheme(readTheme(), false);
@@ -46,11 +40,5 @@ const moon = 'M17.5 15.4A7.2 7.2 0 0 1 9.8 5.3 7.4 7.4 0 1 0 17.5 15.4z';
 		button.addEventListener('click', () => {
 			applyTheme(readTheme() === 'dark' ? 'light' : 'dark', true);
 		});
-	});
-
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-		const stored = localStorage.getItem(KEY);
-		if (stored === 'light' || stored === 'dark') return;
-		applyTheme(event.matches ? 'dark' : 'light', false);
 	});
 </script>
