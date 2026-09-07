@@ -1,6 +1,6 @@
 ---
 title: Digital image processing intern
-summary: Satellite scenes of rural Ludhiana, classified with researchers who already knew the land.
+summary: Using real satellite imagery for improved land-use planing and crop selection.
 start: "2023-06"
 end: "2023-06"
 org: Punjab Remote Sensing Centre
@@ -15,12 +15,8 @@ tags:
 
 ## The question
 
-What is this land actually doing? Urban, agricultural, water — the labels look obvious until you are looking at a satellite image of rural Ludhiana with people who have spent careers arguing about the edges.
+Satellite images of rural Ludhiana show urban, agricultural, and water zones — but the boundaries between them aren't always obvious, even to the people who study the land for a living.
 
 ## The work
 
-I analyzed geospatial imagery with senior researchers and classified urban, agricultural, and water-body zones. The internship fed a research paper on land-use planning: crop selection and expected yields, grounded in what the pixels would admit.
-
-## Why a month still counts
-
-It was short. It was also the first time I sat with data that was not a homework distribution — messy, spatial, and tied to a planning decision someone else would have to live with.
+I worked with senior researchers to analyze geospatial satellite imagery and classify zones as urban, agricultural, or water-body. That work fed into a research paper on land-use planning, including crop selection and expected yields.

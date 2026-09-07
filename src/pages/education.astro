@@ -16,10 +16,6 @@ const entries = await listed('education');
 	<header class="wrap page-head">
 		<p class="kicker">Education</p>
 		<h1>Computer Science at Carnegie Mellon</h1>
-		<p>
-			B.S. in Computer Science, with minors in machine learning and mathematical finance.
-			Expected May 2028. Earlier: Sat Paul Mittal School, Ludhiana — ISC state topper, 98.8%.
-		</p>
 	</header>
 	<div class="wrap stack">
 		{
@@ -31,10 +27,9 @@ const entries = await listed('education');
 							{formatPeriod(entry.data.start, entry.data.end)}
 							{entry.data.placeholder && <span class="pill accent">Placeholder</span>}
 						</p>
-						<h2>{entry.data.school}</h2>
+						<h2>{entry.data.school} {entry.data.location ? ` · ${entry.data.location}` : ''}</h2>
 						<p class="degree">
 							{entry.data.degree}
-							{entry.data.location ? ` · ${entry.data.location}` : ''}
 						</p>
 						<PlaceholderNote show={entry.data.placeholder} />
 						<div class="prose">
@@ -42,7 +37,6 @@ const entries = await listed('education');
 						</div>
 						{entry.data.highlights.length > 0 && (
 							<>
-								<p class="degree">Selected coursework and notes</p>
 								<TagList tags={entry.data.highlights} />
 							</>
 						)}

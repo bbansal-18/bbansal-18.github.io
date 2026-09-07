@@ -32,17 +32,15 @@ const researchWriting = [
 		eyebrow: item.data.venue ?? item.data.role,
 		placeholder: item.data.placeholder,
 	})),
-	...writing
-		.filter((item) => !item.id.endsWith('-paper'))
-		.map((item) => ({
-			href: `/writing/${item.id}/`,
-			title: item.data.title,
-			summary: item.data.summary,
-			start: item.data.start,
-			end: item.data.end,
-			eyebrow: writingKind[item.data.kind],
-			placeholder: item.data.placeholder,
-		})),
+	...writing.map((item) => ({
+		href: `/writing/${item.id}/`,
+		title: item.data.title,
+		summary: item.data.summary,
+		start: item.data.start,
+		end: item.data.end,
+		eyebrow: writingKind[item.data.kind],
+		placeholder: item.data.placeholder,
+	})),
 ];
 
 ---
@@ -80,10 +78,6 @@ const researchWriting = [
 				All education
 			</a>
 		</div>
-		<p class="dek">
-			Computer Science at Carnegie Mellon — the degree I am here for, with minors in machine
-			learning and mathematical finance.
-		</p>
 		<HomeCardGrid
 			items={education.map((entry) => ({
 				href: '/education/',
@@ -108,8 +102,8 @@ const researchWriting = [
 							All {section.label.toLowerCase()}
 						</a>
 					</div>
-					<p class="dek">{section.dek}</p>
 					<HomeCardGrid
+						singleRow={section.collection === 'projects'}
 						items={items.map((item) => ({
 							href: `${section.href}${item.id}/`,
 							title: item.data.title,
@@ -132,7 +126,6 @@ const researchWriting = [
 				See all
 			</a>
 		</div>
-		<p class="dek">A book, papers, and the questions behind them — from high school onward.</p>
 		<HomeCardGrid items={researchWriting} />
 	</section>
 
@@ -140,9 +133,9 @@ const researchWriting = [
 		<div class="section-head">
 			<h2>Also here</h2>
 		</div>
-		<p class="dek">The rest of the picture from high school onward.</p>
 		<ul class="meta-links">
 			<li><a href={path('/awards/')}>Awards</a></li>
+			<li><a href={path('/certifications/')}>Certifications</a></li>
 			<li><a href={path('/activities/')}>Activities</a></li>
 		</ul>
 	</section>

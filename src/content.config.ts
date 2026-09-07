@@ -63,6 +63,15 @@ const awards = defineCollection({
 	}),
 });
 
+const certifications = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/certifications' }),
+	schema: z.object({
+		...common,
+		issuer: z.string(),
+		summary: z.string().default(''),
+	}),
+});
+
 const activities = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/activities' }),
 	schema: z.object({
@@ -97,6 +106,7 @@ export const collections = {
 	projects,
 	writing,
 	awards,
+	certifications,
 	activities,
 	education,
 	pages,

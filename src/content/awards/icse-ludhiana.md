@@ -1,10 +1,10 @@
 ---
-title: Third in Ludhiana, ICSE Class 10
-summary: 98.4% — a useful number for a month in 2022, and not the point of high school.
+title: ICSE Class 10 Distinction (98.4%)
+summary: Ranked 3rd across the city of Ludhiana in the national secondary education examinations.
 start: "2022"
-issuer: CISCE / Sat Paul Mittal School
+issuer: CISCE
 placeholder: false
 featured: false
 ---
 
-Hindustan Times reported the Ludhiana ICSE Class 10 rankings in 2022; I placed third in the district at 98.4%. Senior year is the number that matters more: ISC state topper, 98.8%.
+Ranked 3rd across the city of Ludhiana in the national secondary education examinations.

@@ -15,29 +15,29 @@ export const site = {
 		'Portfolio of Bhavya Bansal, Computer Science student at Carnegie Mellon University: research, projects, writing, and experience.',
 	location: 'Pittsburgh, PA',
 	email: 'bansalbhavya947@gmail.com',
-	github: '',
+	github: 'https://github.com/bbansal-18',
 	linkedin: 'https://www.linkedin.com/in/bbansal18',
 	resumeHref: '/resume/',
 	resumePdf: '/resume.pdf',
 	skillGroups: [
 		{
-			heading: 'Now',
-			blurb: 'What I spend the most time thinking about.',
+			heading: 'Categories',
 			items: [
 				'Full-stack and SaaS',
-				'Quantitative trading systems',
+				'Algorithms Design and Analysis',
+				'Application Dev',
+				'Trading systems',
 				'Machine learning',
 				'Data pipelines',
+				'APIs',
 			],
 		},
 		{
 			heading: 'Languages',
-			blurb: 'What I write in, day to day.',
-			items: ['Python', 'C', 'C++', 'Java', 'JavaScript', 'SQL', 'SML'],
+			items: ['Python', 'C++', 'C', 'Java', 'JavaScript', 'SQL', 'SML'],
 		},
 		{
-			heading: 'Tools',
-			blurb: 'Supporting context — not a claim of mastery.',
+			heading: 'Tools and Frameworks',
 			items: [
 				'React',
 				'React Native',
@@ -46,12 +46,11 @@ export const site = {
 				'Firebase',
 				'AWS',
 				'Git',
-				'OpenAI API',
+				'TensorFlow'
 			],
 		},
 		{
-			heading: 'Also',
-			blurb: 'How I talk, and what I do when I am not at a keyboard.',
+			heading: 'Facts and Hobbies',
 			items: ['English', 'Hindi', 'Punjabi', 'Tennis', 'Soccer', 'Pickleball'],
 		},
 	],
@@ -59,6 +58,7 @@ export const site = {
 
 export const nav = {
 	primary: [
+		{ href: '/', label: 'Home' },
 		{ href: '/about/', label: 'About' },
 		{ href: '/education/', label: 'Education' },
 		{ href: '/experience/', label: 'Experience' },
@@ -71,6 +71,7 @@ export const nav = {
 			match: ['/research/', '/writing/'],
 		},
 		{ href: '/awards/', label: 'Awards' },
+		{ href: '/certifications/', label: 'Certifications' },
 		{ href: '/activities/', label: 'Activities' },
 	],
 };
@@ -78,8 +79,8 @@ export const nav = {
 export const homeSections = [
 	{
 		href: '/experience/',
-		label: 'Experience',
-		dek: 'Roles told as stories — what the work was for, not a job description.',
+		label: 'Work Experience',
+		dek: "A list of experiences where I have learned things beyond the scope of any lecture I have attended.",
 		collection: 'experience' as const,
 	},
 	{

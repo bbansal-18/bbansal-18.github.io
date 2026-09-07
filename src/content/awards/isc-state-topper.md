@@ -1,10 +1,10 @@
 ---
-title: ISC state topper
-summary: 98.8% in the ISC board examinations in senior year.
+title: ISC State Topper (98.8%)
+summary: Achieved top tier ranking in the rigorous senior year national board examinations.
 start: "2024"
-issuer: CISCE
+issuer: CISCE / Sat Paul Mittal School
 placeholder: false
 featured: true
 ---
 
-State topper in the ISC Class 12 board examinations, 98.8%, while at Sat Paul Mittal School. It belongs here as the academic close of high school — not as a substitute for the work on the rest of this site.
+Ranked First in the state of Punjab in the rigorous senior year national board examinations.

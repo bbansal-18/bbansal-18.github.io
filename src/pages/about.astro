@@ -28,17 +28,15 @@ const { Content } = await render(about);
 			<Content />
 		</div>
 		<section class="skill-block" aria-labelledby="skills-heading">
-			<h2 id="skills-heading">How I work</h2>
+			<h2 id="skills-heading">My Skills</h2>
 			<p>
-				Skills as supporting context, not a scorecard. These are the areas I return to; the
-				projects and research pages show how they show up in practice.
+				These are some skills that I consider myself proficient in, and some facts and hobbies that you may find interesting.
 			</p>
 			<div class="skill-grid">
 				{
 					site.skillGroups.map((group) => (
 						<div>
 							<h3>{group.heading}</h3>
-							<p>{group.blurb}</p>
 							<TagList tags={group.items} />
 						</div>
 					))

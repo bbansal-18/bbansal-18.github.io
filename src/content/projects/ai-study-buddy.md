@@ -1,6 +1,6 @@
 ---
 title: AI Study Buddy
-summary: LeetCode-style practice, an LLM tutor, and Judge0 in the same loop — with the model forbidden from talking in anything but JSON.
+summary: LeetCode-style coding practice platform where an AI tutor helps you work through problems.
 start: "2025-05"
 end: "2025-07"
 role: Builder
@@ -11,14 +11,17 @@ tags:
   - Flask
   - OpenAI
   - Judge0
+links:
+  - label: GitHub
+    href: https://github.com/bbansal-18/ai_study_buddy
 ---
 
 ## Why it exists
 
-Most “AI tutors” will happily narrate. I wanted something that would also run the code. AI Study Buddy is a full-stack study assistant: a problem set you can filter instantly, a tutor that has to answer in structured JSON, and live Judge0 test runs with failing assertions surfaced in the UI.
+Most "AI tutor" tools will explain code but won't let me figure out solutions, or won't have a built-in coding platform. I wanted something that would faciliate learning while coding, so I built a full-stack study assistant: a problem set you can filter instantly, an AI tutor that has to answer in structured JSON, and live Judge0 test runs that find issues in the code and redirect it to AI directly in the UI for helpful feedback.
 
 ## What I built
 
-The client keeps a lightweight index (enough to search and filter without a round trip). On submit, the Flask backend merges user code into a language-specific harness and sends it to Judge0 via RapidAPI. Judge0’s JSON comes back as inline feedback, not a wall of logs. The OpenAI path is fenced by system prompts that demand JSON only, then parsed server-side so the UI is not one malformed sentence away from breaking.
+The client keeps a lightweight index so you can search and filter problems without a round trip to the server. On submission, a Flask backend merges your code into a language-specific test harness and sends it to Judge0 via RapidAPI; results come back as inline feedback instead of raw logs. The tutor's replies are constrained by system prompts requiring JSON-only output, which I parse server-side so a malformed response doesn't break the UI.
 
-I documented the public repo for reuse. If you have that URL, it belongs in the frontmatter `links` of this file.
+I documented the public repo for reuse. Use the link below.  

@@ -1,6 +1,6 @@
 ---
 title: Aqua Solar Canopy
-summary: A student-built model that harvests rain and solar on the same roof footprint — published as a way to make both cheaper to try.
+summary: A cheap, copyable rooftop design that harvests rainwater and generates electricity at once.
 start: "2021"
 end: "2021"
 role: Author
@@ -20,12 +20,12 @@ links:
 
 ## The problem
 
-India does not have a shortage of rain so much as a shortage of using it, and rooftops are already spoken for. I wanted a model that did two unfashionable things at once: catch rainwater and make a little electricity, at a price that was not a demonstration for a lab.
+India does not have a shortage of rain so much as a shortage of using it. I wanted a model that did two things at once — collect rainwater and generate a small amount of electricity — at a cost that made sense to actually build, not just demo in a lab.
 
 ## What I did
 
-The canopy collects rain, cools it through copper, and runs it through ordinary filters — charcoal, sand, gravel — so household water and irrigation water come out as two different pipes. Water-resistant panels at the corners charge a battery; an LDR decides when the lights should bother to turn on. The paper is the argument that this is a mass object, not a science-fair sculpture: cheap, roof-shaped, and meant to be copied.
+The canopy collects rainwater, cools it through copper piping, and filters it through ordinary materials like charcoal, sand, and gravel, splitting the output into separate household and irrigation lines. Water-resistant solar panels at the corners charge a battery, and a light sensor turns the lights on automatically when needed. The paper argues this should be a cheap, roof-shaped object people can copy, not a one-off demo.
 
 ## Outcome
 
-Published in IJEAT (October 2021). The PDF is linked above. This is high-school research; I still stand by the constraint — affordability and dual use — more than by any particular material choice.
+Published in IJEAT, October 2021. This was high-school research, and the part I still stand by is the constraint of designing for affordability and mass use.

@@ -1,7 +1,7 @@
 ---
 title: Carnegie Mellon University
-summary: 4.0 GPA, Undergraduate Computer Science, with Machine Learning concentration and Mathematical Finance minor.
-start: "2024-08"
+summary: 4.0 GPA, Undergraduate Computer Science, with ML concentration and Math Finance minor.
+start: "2024"
 end: Present
 school: Carnegie Mellon University
 degree: B.S. in Computer Science · Machine Learning Concentration · Mathematical Finance Minor
@@ -9,18 +9,18 @@ location: Pittsburgh, PA
 featured: true
 placeholder: false
 highlights:
-  - Dean’s List, High Honors (four semesters)
   - Algorithms (15-451)
   - Computer Systems (15-213)
   - Parallel and sequential data structures (15-210)
-  - Introduction to machine learning (10-301)
   - Probability and computing (15-259)
-  - AI problem solving (15-281)
+  - Theoretical CS (15-251)
   - Deep learning systems (10-414)
-  - Discrete-time finance
+  - Discrete-time finance (21-370)
+  - Intro ML (10-301)
+  - Functional programming (15-150)
 ---
 
-Expected Graduation: May 2028
+Expected Graduation: December 2027 or May 2028
 
 - GPA: 4.0/4.0
 - Dean's List with High Honors x 4

@@ -698,6 +698,7 @@ html[data-theme='dark'] .theme-toggle .icon-moon {
 .timeline-item p {
 	margin: 0;
 	max-width: 40rem;
+	color: var(--ink-muted);
 }
 
 .prose {

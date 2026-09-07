@@ -1,10 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages (project site): https://<user>.github.io/Portfolio/
-// If you later use a user site repo (<user>.github.io), set base to '/'.
+// GitHub Pages (project site): https://bbansal-18.github.io/Portfolio/
 export default defineConfig({
-	site: 'https://bhavyabansal.github.io',
+	site: 'https://bbansal-18.github.io',
 	base: '/Portfolio',
 	trailingSlash: 'always',
 });

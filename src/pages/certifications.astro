@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+import { listed } from '../lib/content';
+import { site } from '../data/site';
+
+const entries = await listed('certifications');
+
+const SHORT_MONTHS = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec',
+];
+
+function issued(start: string): string {
+	const ym = start.match(/^(\d{4})-(\d{2})$/);
+	if (!ym) return start;
+	return `Issued ${SHORT_MONTHS[Number(ym[2]) - 1]} ${ym[1]}`;
+}
+---
+
+<BaseLayout
+	title="Licenses & certifications"
+	description="Course certifications from MIT, Stanford, and Harvard. Credentials are on LinkedIn."
+>
+	<header class="wrap page-head">
+		<p class="kicker">Certifications</p>
+		<h1>Licenses &amp; certifications</h1>
+		<p>
+			Certification credentials are on my <a href={site.linkedin} rel="me">LinkedIn</a>.
+		</p>
+	</header>
+	<div class="wrap">
+		<div class="timeline">
+			{
+				entries.map((entry) => (
+					<TimelineItem
+						title={entry.data.title}
+						start={entry.data.start}
+						when={issued(entry.data.start)}
+						org={entry.data.issuer}
+						placeholder={entry.data.placeholder}
+					/>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>

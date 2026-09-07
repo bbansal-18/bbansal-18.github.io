@@ -7,6 +7,7 @@ type ListedCollection =
 	| 'projects'
 	| 'writing'
 	| 'awards'
+	| 'certifications'
 	| 'activities'
 	| 'education';
 

@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
-# Publishes the built site to GitHub Pages. Enable `push` to main when you
-# are ready to host; the repo can stay private while the site is public.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

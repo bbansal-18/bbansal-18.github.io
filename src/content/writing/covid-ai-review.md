@@ -1,6 +1,6 @@
 ---
 title: Role of AI in medicine during COVID-19
-summary: A review of how forecasting, tracing, and diagnosis tools were being used in the first year of the pandemic — written in ninth grade.
+summary: A review of how AI was actually being used against COVID-19 by medical facilities in India, and potential consequences.
 start: "2021-01"
 kind: publication
 featured: true
@@ -14,6 +14,6 @@ links:
     href: https://www.irjet.net/archives/V8/i1/IRJET-V8I1198.pdf
 ---
 
-This is a review, not a new model. In ninth grade I wanted a single place that gathered how AI was actually being pointed at COVID-19: early detection, diagnosis, contact tracing, load on clinicians, even the speculative edges like drone delivery and vaccine research. The claim is modest and I still think it is the right shape for that moment — AI complements epidemiology; it does not replace a clinician; forecasts are only as honest as their inputs.
+This is a review about AI using during COVID-19. In ninth grade, I wanted one place that pulled together how AI was actually being used against COVID-19, including early detection, diagnosis, contact tracing, easing the load on clinicians, and more speculative uses like drone delivery and vaccine research. The conclusion was modest, and I still think that was the right scope for the moment. AI complements epidemiology, but it doesn't replace a clinician.
 
 Published in IRJET, Volume 8, Issue 1 (January 2021).

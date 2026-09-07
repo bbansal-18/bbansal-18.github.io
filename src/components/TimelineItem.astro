@@ -3,20 +3,21 @@ import { formatPeriod } from '../lib/dates';
 
 interface Props {
 	title: string;
-	summary: string;
+	summary?: string;
 	start: string;
 	end?: string;
+	when?: string;
 	org?: string;
 	placeholder?: boolean;
 	href?: string;
 }
 
-const { title, summary, start, end, org, placeholder, href } = Astro.props;
+const { title, summary, start, end, when, org, placeholder, href } = Astro.props;
 ---
 
 <article class="timeline-item">
 	<p class="when">
-		{formatPeriod(start, end)}
+		{when ?? formatPeriod(start, end)}
 		{placeholder && <span class="pill accent">Placeholder</span>}
 	</p>
 	<h3>
@@ -29,5 +30,5 @@ const { title, summary, start, end, org, placeholder, href } = Astro.props;
 		}
 	</h3>
 	{org && <p class="org">{org}</p>}
-	<p>{summary}</p>
+	{summary && <p>{summary}</p>}
 </article>

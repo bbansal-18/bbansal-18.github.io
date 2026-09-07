@@ -1,8 +1,8 @@
 ---
 title: My Med Tracker
-summary: Prescriptions, reminders, and RSA-backed patient data — used by more than 1,500 patients and ten-plus verified doctors.
+summary: A medication-reminder app that supported health outcomes of 1,500+ patients.
 start: "2023-04"
-end: "2025-08"
+end: 2025-08
 role: Builder
 featured: true
 placeholder: false
@@ -14,12 +14,8 @@ tags:
 
 ## Why it exists
 
-Medication only works if someone remembers it, and clinics only work if the prescription is the same object on the doctor’s phone and the patient’s. My Med Tracker is a React Native app for that loop: create, update, and follow prescriptions, with reminders that actually fire.
+Medication only helps if someone remembers to take it, and a prescription is only useful if the doctor and patient are both looking at the same up-to-date version. My Med Tracker is a React Native app built around that: create, update, and follow prescriptions, with reminders that help with medication adherence.
 
 ## What I built
 
-Firebase-backed prescription management, RSA-secured patient data, and role-separated CRUD so doctors and patients were not sharing a single dangerous permission set. Push notifications carried the reminders. Over a long stretch — from high school into CMU — the app was not a demo: more than ten verified doctors, more than 1,500 patients, and the start of pharmacy collaborations for refills.
-
-## What I would still defend
-
-The useful part was not the stack. It was treating clinical data as something you encrypt on purpose, and treating “users” as people who will ignore you unless the reminder is on time.
+Prescription data is stored in Firebase and encrypted with RSA, with role-separated CRUD so doctors and patients each had access only to what they needed. Reminders go out as push notifications. Over 2 years, starting in high school and continuing until summer 2025,  this grew to more than ten verified doctors and more than 1,500 patients.

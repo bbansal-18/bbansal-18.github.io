@@ -3,20 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TimelineItem from '../components/TimelineItem.astro';
 import { listed } from '../lib/content';
 
-const entries = await listed('awards');
+const order = [
+	'deans-list',
+	'valedictorian',
+	'isc-state-topper',
+	'icse-ludhiana',
+	'india-book-of-records',
+	'irc-2017',
+	'irc-2016',
+];
+
+const entries = (await listed('awards')).sort(
+	(a, b) => order.indexOf(a.id) - order.indexOf(b.id),
+);
 ---
 
 <BaseLayout
 	title="Awards"
-	description="Dean’s List, valedictorian, robotics championships, and the rest of the record."
+	description="Dean’s List, valedictorian, board rankings, and international robotics."
 >
 	<header class="wrap page-head">
 		<p class="kicker">Awards</p>
 		<h1>Recognition</h1>
-		<p>
-			Dean’s List, a valedictorian year, international robotics, and the credentials I earned on
-			purpose.
-		</p>
+		<p>Dean’s List, a valedictorian year, and international robotics.</p>
 	</header>
 	<div class="wrap">
 		<div class="timeline">

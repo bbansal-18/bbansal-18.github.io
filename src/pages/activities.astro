@@ -3,7 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TimelineItem from '../components/TimelineItem.astro';
 import { listed } from '../lib/content';
 
-const entries = await listed('activities');
+const order = ['head-boy', 'can-fight-cancer', 'computer-club', 'research-club'];
+
+const entries = (await listed('activities')).sort(
+	(a, b) => order.indexOf(a.id) - order.indexOf(b.id),
+);
 ---
 
 <BaseLayout
@@ -13,9 +17,6 @@ const entries = await listed('activities');
 	<header class="wrap page-head">
 		<p class="kicker">Activities</p>
 		<h1>Communities I have been part of</h1>
-		<p>
-			Student council, a club I founded, and the rest of the high-school week that was not a class.
-		</p>
 	</header>
 	<div class="wrap">
 		<div class="timeline">
