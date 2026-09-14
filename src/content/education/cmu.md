@@ -4,7 +4,7 @@ summary: 4.0 GPA, Undergraduate Computer Science, with ML concentration and Math
 start: "2024"
 end: Present
 school: Carnegie Mellon University
-degree: B.S. in Computer Science · Machine Learning Concentration · Mathematical Finance Minor
+degree: B.S. in Computer Science · Machine Learning Concentration · Computational Finance Minor
 location: Pittsburgh, PA
 featured: true
 placeholder: false
@@ -29,4 +29,4 @@ Coming to CMU has changed how I think more than any single class has. Being surr
 
 Maintaining a 4.0 at CMU's School of Computer Science is something a lot of people told me wasn't realistic, which made me want it more. But the GPA itself isn't really the point: it's a byproduct of how I try to work. I care about getting things right, not just getting things done, and I'd rather give 100% to fewer things than spread myself thin across everything. That mindset applies as much to my studies as it does to everything else I do outside class. Along the way, I've learned that the best way to stay ahead is to actually be ahead: finish assignments early, attack the topics I find hardest first instead of avoiding them, and learn alongside friends rather than in isolation.
 
-My other educational interests, Machine Learning and Mathematical Finance, look like they pull in different directions, but they've both stretched me in ways that connect back to CS. I started with ML mostly because CMU is CMU: it felt like something I had to do, given the caliber of the program. I stayed because of how the material is taught. It's not just theory, it translates directly to real systems, and it covers the breadth you actually need to understand a world where AI is moving this fast. Math Finance came from a place of curiosity, and wanting to get uncomfortable. Financial markets turned out to be one of the most genuinely interesting problems I've encountered: they're constantly shifting, impossible to "solve," and that unpredictability is exactly what makes the field exciting to me.
+My other educational interests, Machine Learning and Computational Finance, look like they pull in different directions, but they've both stretched me in ways that connect back to CS. I started with ML mostly because CMU is CMU: it felt like something I had to do, given the caliber of the program. I stayed because of how the material is taught. It's not just theory, it translates directly to real systems, and it covers the breadth you actually need to understand a world where AI is moving this fast. Math Finance came from a place of curiosity, and wanting to get uncomfortable. Financial markets turned out to be one of the most genuinely interesting problems I've encountered: they're constantly shifting, impossible to "solve," and that unpredictability is exactly what makes the field exciting to me.
