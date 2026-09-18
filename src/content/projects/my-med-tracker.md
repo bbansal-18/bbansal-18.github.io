@@ -19,3 +19,5 @@ Medication only helps if someone remembers to take it, and a prescription is onl
 ## What I built
 
 Prescription data is stored in Firebase and encrypted with RSA, with role-separated CRUD so doctors and patients each had access only to what they needed. Reminders go out as push notifications. Over 2 years, starting in high school and continuing until summer 2025,  this grew to more than ten verified doctors and more than 1,500 patients.
+
+The project is no longer operational because changes in requirements surrounding the handling of patient health data made continued use of the application impractical. The experience nevertheless gave me early hands-on experience designing software for real users, working with sensitive data, and balancing usability, security, and reliability in a production-oriented application.
